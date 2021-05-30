@@ -17,7 +17,6 @@ const initialState = {
   isSidebarOpen: false,
   products_loading: false,
   products_error: false,
-  isGridView: true,
 };
 
 const ProductsContext = React.createContext();
@@ -30,17 +29,13 @@ export const ProductsProvider = ({ children }) => {
     try {
       const response = await axios.get(`${url}?_page=1&_limit=20`);
       const products = response.data.data;
-      console.log(products);
+
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
     } catch (error) {
       console.log(error.message);
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
     }
   };
-
-  //   const setGridView= () => {
-  // 	  dispatch({type: })
-  //   }
 
   useEffect(() => {
     fetchProducts();

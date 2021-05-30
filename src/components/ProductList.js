@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Product from './Product';
 
 const ProductList = ({ products }) => {
-  console.log(products);
+  // console.log(products);
   return (
     <Wrapper className=' '>
       {products.map((product) => {

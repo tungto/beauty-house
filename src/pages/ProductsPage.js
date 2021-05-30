@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageHero, Filters, Sort, GridView, ListView } from '../components';
 import styled from 'styled-components';
-import { useProductsContext } from '../context/products_context';
+import { useFilterContext } from '../context/filter_context';
 
 const ProductsPage = () => {
-  const {
-    products_loading: loading,
-    products_error: error,
-    filtered_products: products,
-  } = useProductsContext();
-
-  const [isGridView, setIsGridView] = useState(true);
+  const { filtered_products: products, isGridView } = useFilterContext();
+  //   console.log(isGridView);
+  if (products.length < 1) {
+    return <h1>There no products found</h1>;
+  }
 
   return (
     <Wrapper className='section-center'>
@@ -18,7 +16,7 @@ const ProductsPage = () => {
       <section className='products-container'>
         <Filters className='right-products' />
         <div className='left-products'>
-          <Sort isGridView={isGridView} />
+          <Sort />
           {isGridView ? (
             <GridView products={products} />
           ) : (

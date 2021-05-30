@@ -1,7 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BsGridFill, BsList } from 'react-icons/bs';
-const Sort = ({ isGridView }) => {
+import { useFilterContext } from '../context/filter_context';
+
+const Sort = () => {
+  const {
+    filtered_products: products,
+    isGridView,
+    setGridView,
+    setListView,
+    sort,
+    updateSort,
+  } = useFilterContext();
   return (
     <Wrapper className='section'>
       <div className='btn-container'>
@@ -9,6 +19,7 @@ const Sort = ({ isGridView }) => {
           className={`${
             isGridView ? 'icon grid-icon active' : 'icon grid-icon'
           }`}
+          onClick={setGridView}
         >
           <BsGridFill />
         </button>
@@ -16,6 +27,7 @@ const Sort = ({ isGridView }) => {
           className={`${
             !isGridView ? 'icon list-icon active' : 'icon list-icon'
           }`}
+          onClick={setListView}
         >
           <BsList />
         </button>
@@ -24,9 +36,9 @@ const Sort = ({ isGridView }) => {
       <hr />
       <form className='sort-section'>
         <label htmlFor='sort'>Sort by </label>
-        <select name='sort' id='sort'>
+        <select name='sort' id='sort' onChange={updateSort}>
           <option value='price-inc'>Price (Lowest)</option>
-          <option value='price-inc'>Price (Highest)</option>
+          <option value='price-dec'>Price (Highest)</option>
           <option value='name-a'>Name (a-z)</option>
           <option value='name-z'>Name (z-a)</option>
         </select>

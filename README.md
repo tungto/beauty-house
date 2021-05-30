@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+User Stories
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- view a list of products so i can select some to purchase
+- review my cart so i can mkae adjustment prior to checkout
+- check out
 
-## Available Scripts
+Feature
 
-In the project directory, you can run:
+- Login/ Logout
+- See thumbnail of each product
+- click to view product detail
+- view product by category
+- add to cart from product detail
+- search for a product
+- view quantities and items in the cart
+- see a total cost before tax and shipping
+- remove items
+- adjust quantity of items
+- click to navigate to product detail page
+- trigger check out from any page, if there are items in the cart
+- enter a shipping address
+- enter a credit cart number
+- show total including tax and shipping before finalizing
+- show confirmation message after payment process
+- verify payment via our payment processor
 
-### `npm start`
+======================
+Pages:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- About page
+- Products page
+- Home Page
+- Checkout
+- Errors page
+- Single Product page
+- indexjs
+- PrivateRoute
+- AuthWrapper
+- CartPage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Component
 
-### `npm test`
+# Home page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Navbar
+- CartButton
+- Hero
+- FeatureProduct
+- Services
+- Contact
+- # Product
+  # About page
+- # Hero
+  # Products page
+- Hero
+- Sort
+- SearchBar
+- Filters
+- ProductList => Grid View/ List View => Product
 
-### `npm run build`
+==========
+Cart page
+==========
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Hero
+- Cart Container => CartHeader => CartItem
+- # Cart total
+  # Single Products page
+- Hero
+- Item info
+- Add To cart

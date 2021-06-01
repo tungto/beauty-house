@@ -6,18 +6,18 @@ import { useFilterContext } from '../context/filter_context';
 const Sort = () => {
   const {
     filtered_products: products,
-    isGridView,
+    grid_view,
     setGridView,
     setListView,
     sort,
     updateSort,
   } = useFilterContext();
   return (
-    <Wrapper className='section'>
+    <Wrapper className=' '>
       <div className='btn-container'>
         <button
           className={`${
-            isGridView ? 'icon grid-icon active' : 'icon grid-icon'
+            grid_view ? 'icon grid-icon active' : 'icon grid-icon'
           }`}
           onClick={setGridView}
         >
@@ -25,18 +25,24 @@ const Sort = () => {
         </button>
         <button
           className={`${
-            !isGridView ? 'icon list-icon active' : 'icon list-icon'
+            !grid_view ? 'icon list-icon active' : 'icon list-icon'
           }`}
           onClick={setListView}
         >
           <BsList />
         </button>
       </div>
-      <h4 className='quantity'> 30 products found</h4>
+      <p className='quantity'> {products.length} products found</p>
       <hr />
       <form className='sort-section'>
-        <label htmlFor='sort'>Sort by </label>
-        <select name='sort' id='sort' onChange={updateSort}>
+        <label htmlFor='sort'>sort by</label>
+        <select
+          name='sort'
+          id='sort'
+          value={sort}
+          className='sort-input'
+          onChange={updateSort}
+        >
           <option value='price-inc'>Price (Lowest)</option>
           <option value='price-dec'>Price (Highest)</option>
           <option value='name-a'>Name (a-z)</option>

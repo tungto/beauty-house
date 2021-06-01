@@ -1,11 +1,11 @@
 import React from 'react';
-import { formatNumber } from '../utils/helpers';
+import { formatPrice } from '../utils/helpers';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { randomIndex } from '../utils/helpers';
 
 const Product = ({ images, name, price, id }) => {
-  // console.log(images[0].url);
   return (
     <Wrapper>
       <div className='container'>
@@ -15,7 +15,7 @@ const Product = ({ images, name, price, id }) => {
         </Link>
         <div className='product-info'>
           <p className='featured-title'>{name}</p>
-          <p>{formatNumber(price)}</p>
+          <p>{formatPrice(price)}</p>
         </div>
       </div>
     </Wrapper>

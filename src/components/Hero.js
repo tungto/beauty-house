@@ -18,7 +18,7 @@ const AboutPage = () => {
           aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
           alias?
         </p>
-        <Link className='btn hero-btn' to='/products'>
+        <Link className='btn hero-btn' to='/api/products'>
           shop now
         </Link>
       </div>

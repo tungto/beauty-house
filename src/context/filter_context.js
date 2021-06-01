@@ -10,36 +10,42 @@ import {
   FILTER_PRODUCTS,
   UPDATE_FILTERS,
   LOAD_PRODUCTS,
+  CLEAR_FILTERS,
 } from '../actions';
 
 const FilterContext = React.createContext();
 
 const initialState = {
-  isGridView: true,
+  grid_view: true,
   filtered_products: [],
+  all_products: [],
   sort: 'price-inc',
   filters: {
+    text: '',
     category: 'all',
     company: 'all',
     color: 'all',
-    price: null,
-    shipping: 'all',
+    price: 0,
+    shipping: false,
+    max_price: 0,
+    min_price: 0,
   },
 };
 
 const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { products, featured_products } = useProductsContext();
-  //   console.log(products, featured_products);
+  const { products } = useProductsContext();
 
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products });
-    dispatch({ type: SORT_PRODUCTS, payload: state.sort });
-    dispatch({ type: FILTER_PRODUCTS, payload: state.filters });
-  }, [products, state.sort, state.filters]);
+  }, [products]);
+
+  useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
+    dispatch({ type: SORT_PRODUCTS });
+  }, [state.sort, state.filters, products]);
 
   const setGridView = () => {
-    // console.log('check');
     dispatch({ type: SET_GRIDVIEW });
   };
 
@@ -47,22 +53,48 @@ const FilterProvider = ({ children }) => {
     dispatch({ type: SET_LISTVIEW });
   };
 
-  const updateFilters = (filters) => {
-    dispatch({ type: UPDATE_FILTERS, payload: filters });
+  const updateFilters = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    if (name === 'category') {
+      value = e.target.textContent;
+    }
+    if (name === 'color') {
+      value = e.target.dataset.color;
+      console.log(value);
+    }
+    if (name === 'price') {
+      value = Number(value);
+    }
+    if (name === 'shipping') {
+      value = e.target.checked;
+    }
+    console.log(name, value);
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
 
   const updateSort = (e) => {
-    // console.log(sort.target.value);
-    const name = e.target.name;
+    // const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
-
+    // console.log('update sort', name, value);
     dispatch({ type: UPDATE_SORT, payload: value });
+  };
+
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
   };
 
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, updateFilters, updateSort }}
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        updateFilters,
+        updateSort,
+        clearFilters,
+      }}
     >
       {children}
     </FilterContext.Provider>

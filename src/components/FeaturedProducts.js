@@ -27,8 +27,8 @@ const FeaturedProducts = () => {
           <div className='underline'></div>
         </div>
         <div className='featured section-center'>
-          {products.map((product) => (
-            <Product key={product.id} {...product} />
+          {products.map((product, index) => (
+            <Product key={product.id} {...product} index={index} />
           ))}
         </div>
         <Link className='btn btn-all' to='/api/products'>

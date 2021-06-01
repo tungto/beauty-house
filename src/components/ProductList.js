@@ -1,23 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
-import Product from './Product';
+import { useFilterContext } from '../context/filter_context';
+import { GridView, ListView } from '../components';
 
-const ProductList = ({ products }) => {
-  // console.log(products);
-  return (
-    <Wrapper className=' '>
-      {products.map((product) => {
-        return <Product key={product.id} {...product} />;
-      })}
-    </Wrapper>
-  );
+const ProductList = () => {
+  const { filtered_products, grid_view } = useFilterContext();
+  // console.log(filtered_products);
+  if (filtered_products.length < 1) {
+    return <h5>Sorry, no products found</h5>;
+  }
+
+  if (!grid_view) {
+    return <ListView products={filtered_products} />;
+  }
+  return <GridView products={filtered_products}>product list</GridView>;
 };
-
-const Wrapper = styled.section`
-  width: 70vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-`;
 
 export default ProductList;

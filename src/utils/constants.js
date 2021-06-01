@@ -44,4 +44,4 @@ export const products_url =
   'https://json-server-ecommerce.herokuapp.com/api/products';
 
 export const single_product_url =
-  'https://json-server-ecommerce.herokuapp.com/api/products?id= ';
+  'https://json-server-ecommerce.herokuapp.com/api/products?id=';

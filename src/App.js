@@ -4,7 +4,7 @@ import { Navbar, Footer } from './components';
 
 import {
   Home,
-  SingleProduct,
+  SingleProductPage,
   Cart,
   Checkout,
   Error,
@@ -30,7 +30,11 @@ function App() {
         <Route exact path='/api/products'>
           <Products />
         </Route>
-        <Route exact path='/api/products/:id' children={SingleProduct} />
+        <Route
+          exact
+          path='/api/products/:id'
+          children={<SingleProductPage />}
+        />
         <Route exact path='/checkout'>
           <Checkout />
         </Route>

@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
-// import { FaMinus, FaPlus } from 'react-icons/fa';
-import { useCartContext } from '../context/cart_context';
-import { AmountButtons } from '../components';
-import { Link } from 'react-router-dom';
 
 const CartHeader = () => {
   return (
@@ -21,6 +16,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 316px 1fr 1fr 1fr auto;
   justify-items: center;
+  padding-bottom: 1rem;
   h4 {
     font-weight: 100;
   }

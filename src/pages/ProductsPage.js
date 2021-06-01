@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const ProductsPage = () => {
   return (
-    <Wrapper className=' '>
+    <Wrapper className=''>
       <PageHero title='products' />
       <section className='products-container section-center section'>
         <Filters className='right-products' />

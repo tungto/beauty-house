@@ -49,12 +49,12 @@ const SingleProductPage = () => {
   const {
     name,
     price,
-    colors,
+    // colors,
     description,
     reviews,
     stock,
     stars,
-    id: sku,
+    category: sku,
     company,
     images,
   } = product;
@@ -63,7 +63,7 @@ const SingleProductPage = () => {
     <Wrapper>
       <PageHero title={name} product />
       <div className='section section-center page'>
-        <Link to='/api/products' className='btn'>
+        <Link to='/api/products' className='btn back-btn'>
           back to products
         </Link>
         <div className='product-center'>
@@ -71,9 +71,9 @@ const SingleProductPage = () => {
           <section className='content'>
             <h1>{name}</h1>
             <Stars stars={stars} reviews={reviews} />
-            <h5>{formatPrice(price)}</h5>
+            <h4>{formatPrice(price)}</h4>
             <p className='desc'>{description}</p>
-            <hr />
+
             <p className='info'>
               <span>Available: </span>
               {stock > 0 ? 'In stock' : 'Out of stock'}
@@ -117,10 +117,20 @@ const Wrapper = styled.main`
       font-weight: 700;
     }
   }
+  .back-btn {
+    background: #50929c;
+    color: var(--clr-white);
+    :hover {
+      background: lightblue;
+    }
+  }
+  hr {
+    border: 1px solid #ececec;
+  }
 
   @media (min-width: 992px) {
     .product-center {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 2fr;
       align-items: center;
     }
     .price {

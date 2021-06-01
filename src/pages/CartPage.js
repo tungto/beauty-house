@@ -15,7 +15,7 @@ const Cart = () => {
     );
   }
   return (
-    <div className='cart'>
+    <div className='cart section-center'>
       <CartContainer />
       <CartTotal />
     </div>

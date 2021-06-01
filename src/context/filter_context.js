@@ -56,13 +56,14 @@ const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name;
     let value = e.target.value;
+    // console.log(e.target);
 
     if (name === 'category') {
       value = e.target.textContent;
     }
     if (name === 'color') {
       value = e.target.dataset.color;
-      console.log(value);
+      // console.log(value);
     }
     if (name === 'price') {
       value = Number(value);
@@ -70,7 +71,7 @@ const FilterProvider = ({ children }) => {
     if (name === 'shipping') {
       value = e.target.checked;
     }
-    console.log(name, value);
+    // console.log(name, value);
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
 

@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
 
 const ProductImages = ({ images = [''] }) => {
-  // console.log(images);
-  if (images.images && images.images.length > 0) {
-    // console.log(images.images[0]);
-  }
   const [mainIndex, setMainIndex] = useState(0);
 
   return (
@@ -16,7 +11,6 @@ const ProductImages = ({ images = [''] }) => {
       </div>
       <div className='other-images'>
         {images.map((img, index) => {
-          // console.log(index === mainIndex);
           return (
             <img
               src={img.url}
@@ -33,6 +27,7 @@ const ProductImages = ({ images = [''] }) => {
 };
 
 const Wrapper = styled.div`
+  padding-bottom: 110px;
   .main-img img {
     border-radius: var(--radius);
   }
@@ -41,12 +36,12 @@ const Wrapper = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0.5rem;
     img {
-      width: 120px;
+      width: 60px;
       border-radius: var(--radius);
     }
   }
   .active {
-    border: 1px solid grey;
+    border: 2px solid #50929c;
   }
 `;
 

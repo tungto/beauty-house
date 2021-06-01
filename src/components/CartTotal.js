@@ -10,32 +10,62 @@ const CartTotal = () => {
   const { loginWithRedirect, myUser } = useUserContext();
   console.log();
   return (
-    <Wrapper className='section section-center'>
-      <div className='subtotal'>
-        <span>subtotal:</span>
-        <span>{formatPrice(total_amount)}</span>
+    <Wrapper className='  section-center'>
+      <div className='info'>
+        <div className='subtotal'>
+          <h5>Subtotal:</h5>
+          <h5>{formatPrice(total_amount)}</h5>
+        </div>
+        <div className='shipping-fee'>
+          <p>shipping fee:</p>
+          <p>{formatPrice(shipping_fee)}</p>
+        </div>
+        <div className='total'>
+          <h4>Order Total:</h4>
+          <h4>{formatPrice(total_amount + shipping_fee)}</h4>
+        </div>
       </div>
-      <div className='shipping-fee'>
-        <span>shipping fee:</span>
-        <span>{formatPrice(shipping_fee)}</span>
+      <div className='action-btn'>
+        {myUser ? (
+          <Link to='/checkout' className='btn-checkout btn'>
+            checkout
+          </Link>
+        ) : (
+          <button className='btn-login btn' onClick={loginWithRedirect}>
+            login
+          </button>
+        )}
       </div>
-      <div className='total'>
-        <span>order total:</span>
-        <span>{formatPrice(total_amount + shipping_fee)}</span>
-      </div>
-      {myUser ? (
-        <Link to='/checkout' className='checkout btn'>
-          checkout
-        </Link>
-      ) : (
-        <button className='login btn' onClick={loginWithRedirect}>
-          login
-        </button>
-      )}
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-bottom: 5rem;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  .info {
+    border: 1px solid #ccc;
+    width: 23rem;
+    padding: 1rem;
+    .total,
+    .subtotal,
+    .shipping-fee {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+  .btn-login,
+  .btn-checkout {
+    width: 23rem;
+    background: #f39e35;
+    color: var(--clr-white);
+  }
+`;
 
 export default CartTotal;

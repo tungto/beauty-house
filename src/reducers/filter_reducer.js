@@ -56,7 +56,7 @@ const filter_reducer = (state, action) => {
       // console.log(category);
       tempProducts = tempProducts.filter((product) => {
         // console.log(product.category);
-        return product.categoryId === category;
+        return product.category === category;
       });
     }
 
@@ -67,7 +67,7 @@ const filter_reducer = (state, action) => {
     }
 
     if (color !== 'all') {
-      console.log(color);
+      // console.log(color);
       tempProducts = tempProducts.filter((product) =>
         product.colors.find((c) => c === color)
       );

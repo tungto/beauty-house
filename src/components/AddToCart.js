@@ -7,14 +7,10 @@ import { AmountButtons } from '../components';
 import { Link } from 'react-router-dom';
 
 const AddToCart = ({ product }) => {
-  console.log(product);
   const { colors, id, stock } = product;
   const [amount, setAmount] = useState(1);
   const [mainColor, setMainColor] = useState(colors[0]);
   const { addToCart } = useCartContext();
-
-  console.log(mainColor);
-
   const increase = () => {
     setAmount((oldAmount) => {
       let tempAmount = oldAmount + 1;
@@ -66,22 +62,29 @@ const AddToCart = ({ product }) => {
 };
 
 const Wrapper = styled.div`
+  margin-top: 2rem;
   .color {
     display: inline-block;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid grey;
+    border: 1px solid #50929c;
     margin: 0.5rem;
     opacity: 0.4;
+    cursor: pointer;
   }
   .amount-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 120px;
   }
   .active {
     opacity: 1;
+  }
+  .add-btn {
+    background: #50929c;
+    color: var(--clr-white);
+    :hover {
+      background: lightblue;
+    }
   }
 `;
 

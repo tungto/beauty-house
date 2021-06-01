@@ -20,9 +20,9 @@ const Stars = ({ stars, reviews }) => {
   });
   return (
     <Wrapper>
-      <div className='stars'> {tempStars}</div>
+      <div className='stars'>{tempStars} </div>
 
-      <span>({reviews} customer reviews)</span>
+      <span> ({reviews} customer reviews)</span>
     </Wrapper>
   );
 };
@@ -30,6 +30,9 @@ const Stars = ({ stars, reviews }) => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  .stars {
+    margin-right: 1rem;
+  }
   .Stars-btn {
     display: flex;
     align-items: center;

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
   return (
-    <Wrapper className='section-center'>
+    <Wrapper className='section-center section'>
       <div className='left-hero'>
         <h1>
           design your <br />
@@ -33,6 +33,7 @@ const AboutPage = () => {
 const Wrapper = styled.div`
   min-height: 60vh;
   display: flex;
+  margin-top: 5rem;
   .left-hero {
     width: 50%;
   }
@@ -44,7 +45,7 @@ const Wrapper = styled.div`
 	width: 10%;
     content: '';
     background-color: lightblue;
-    left: 15%;
+    right: 390px;
     height: 70%;
     position: absolute;
     bottom: 17px;
@@ -57,13 +58,15 @@ const Wrapper = styled.div`
     height: 150px;
     z-index: 2;
     border-radius: var(--radius);
-    bottom: -43px;
+    bottom: -0;
   }
   .accent-img {
     position: absolute;
     border-radius: var(--radius);
     width: 400px;
+    height: 530px;
     right: 0;
+    bottom: 0;
   }
   .hero-btn{
 	  background-color: lightcoral;

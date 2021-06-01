@@ -22,21 +22,21 @@ const Filters = () => {
 
   const companies = getUniqueValues(all_products, 'company');
   const categories = getUniqueValues(all_products, 'category');
-  const colors = getUniqueValues(all_products, 'colors');
+  const colors = getUniqueValues(all_products, 'colors').slice(0, 4);
 
-  console.log(all_products);
+  // console.log(all_products);
   return (
-    <Wrapper className=' '>
+    <Wrapper className=''>
       <input
         type='text'
         name='text'
         value={text}
-        placeholder='search'
-        className='search-input'
+        placeholder='Search'
+        className='search-input filter-section'
         onChange={updateFilters}
       />
-      <div className='categories'>
-        <h3 className='title'>category</h3>
+      <div className='categories filter-section'>
+        <h5 className='title'>category</h5>
         {categories.map((c, index) => (
           <button
             name='category'
@@ -49,10 +49,10 @@ const Filters = () => {
           </button>
         ))}
       </div>
-      <div className='company'>
-        <label className='title' htmlFor='company'>
+      <div className='company filter-section'>
+        <h5 className='title' htmlFor='company'>
           company
-        </label>
+        </h5>
         <select
           name='company'
           id='company'
@@ -66,37 +66,41 @@ const Filters = () => {
           ))}
         </select>
       </div>
-      <div className='colors'>
-        {colors.map((c, index) => {
-          // console.log(c);
-          if (c === 'all') {
+      <div className='colors filter-section'>
+        <h5>Colors</h5>
+        <div className='color-container'>
+          {colors.map((c, index) => {
+            // console.log(c);
+            if (c === 'all') {
+              return (
+                <button
+                  key={index}
+                  className={`${color === c ? 'all-btn active' : 'all-btn'}`}
+                  data-color='all'
+                  onClick={updateFilters}
+                  name='color'
+                >
+                  All
+                </button>
+              );
+            }
             return (
               <button
-                key={index}
-                className={`${color === c ? 'all-btn active' : 'all-btn'}`}
-                data-color='all'
+                key={c}
+                style={{ background: c }}
+                className={`${color === c ? 'color-btn active' : 'color-btn'}`}
+                data-color={c}
                 onClick={updateFilters}
                 name='color'
               >
-                all
+                {color === c ? <FaCheck /> : null}
               </button>
             );
-          }
-          return (
-            <button
-              key={c}
-              style={{ background: c }}
-              className={`${color === c ? 'color-btn active' : 'color-btn'}`}
-              data-color={c}
-              onClick={updateFilters}
-              name='color'
-            >
-              {color === c ? <FaCheck /> : null}
-            </button>
-          );
-        })}
+          })}
+        </div>
       </div>
-      <div className='price'>
+      <div className='price filter-section'>
+        <h5>price</h5>
         <p className='price'>{formatPrice(price)}</p>
         <input
           type='range'
@@ -107,8 +111,10 @@ const Filters = () => {
           onChange={updateFilters}
         />
       </div>
-      <div className='shipping'>
-        <label htmlFor='shipping'>free shipping</label>
+      <div className='shipping filter-section'>
+        <label htmlFor='shipping' className='label'>
+          Free Shipping
+        </label>
         <input
           type='checkbox'
           name='shipping'
@@ -117,7 +123,11 @@ const Filters = () => {
           checked={shipping}
         />
       </div>
-      <button type='button' className='btn' onClick={clearFilters}>
+      <button
+        type='button'
+        className='btn filter-section'
+        onClick={clearFilters}
+      >
         clear filters
       </button>
     </Wrapper>
@@ -125,6 +135,22 @@ const Filters = () => {
 };
 
 const Wrapper = styled.section`
+  .search-input {
+    padding: 0.2rem;
+  }
+  .filter-section {
+    margin-bottom: 1rem;
+  }
+  .categories,
+  .company,
+  .colors {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .color-container {
+    display: flex;
+  }
   .color-btn {
     display: inline-block;
     width: 20px;
@@ -132,6 +158,25 @@ const Wrapper = styled.section`
     border-radius: 50%;
     border: none;
     margin: 0.2rem;
+  }
+  .shipping {
+    display: flex;
+    align-items: center;
+    .label {
+      margin-right: 1rem;
+    }
+  }
+  .active,
+  .all-btn.active {
+    border-bottom: 1px solid grey;
+  }
+  button {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0.2rem;
+    text-transform: capitalize;
+    cursor: pointer;
   }
 `;
 

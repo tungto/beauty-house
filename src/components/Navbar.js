@@ -6,8 +6,10 @@ import { links } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import CartButton from './CartButton';
 import logo from '../assets/logo1.png';
+import { useUserContext } from '../context/user_context';
 
 const Navbar = () => {
+  const { myUser } = useUserContext();
   return (
     <NavContainer className='navbar'>
       <div className='nav-center'>
@@ -25,6 +27,11 @@ const Navbar = () => {
               </li>
             );
           })}
+          {myUser && (
+            <li>
+              <Link to='/checkout'>checkout</Link>
+            </li>
+          )}
         </ul>
         <CartButton />
       </div>

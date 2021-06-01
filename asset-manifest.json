@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/beauty-house/static/css/main.6e3d4b93.chunk.css",
+    "main.js": "/beauty-house/static/js/main.5c1552fd.chunk.js",
+    "main.js.map": "/beauty-house/static/js/main.5c1552fd.chunk.js.map",
+    "runtime-main.js": "/beauty-house/static/js/runtime-main.2fb019da.js",
+    "runtime-main.js.map": "/beauty-house/static/js/runtime-main.2fb019da.js.map",
+    "static/js/2.b0957bef.chunk.js": "/beauty-house/static/js/2.b0957bef.chunk.js",
+    "static/js/2.b0957bef.chunk.js.map": "/beauty-house/static/js/2.b0957bef.chunk.js.map",
+    "static/js/3.16e8716e.chunk.js": "/beauty-house/static/js/3.16e8716e.chunk.js",
+    "static/js/3.16e8716e.chunk.js.map": "/beauty-house/static/js/3.16e8716e.chunk.js.map",
+    "index.html": "/beauty-house/index.html",
+    "static/css/main.6e3d4b93.chunk.css.map": "/beauty-house/static/css/main.6e3d4b93.chunk.css.map",
+    "static/js/2.b0957bef.chunk.js.LICENSE.txt": "/beauty-house/static/js/2.b0957bef.chunk.js.LICENSE.txt",
+    "static/media/hero.6f82e746.jpg": "/beauty-house/static/media/hero.6f82e746.jpg",
+    "static/media/hero2.abcfa800.jpg": "/beauty-house/static/media/hero2.abcfa800.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2fb019da.js",
+    "static/js/2.b0957bef.chunk.js",
+    "static/css/main.6e3d4b93.chunk.css",
+    "static/js/main.5c1552fd.chunk.js"
+  ]
+}

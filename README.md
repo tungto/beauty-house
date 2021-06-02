@@ -1,3 +1,4 @@
+// "homepage": "http://tungto.github.io/beauty-house",
 User Stories
 
 - view a list of products so i can select some to purchase
